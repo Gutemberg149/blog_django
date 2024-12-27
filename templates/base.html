@@ -1,0 +1,21 @@
+{% load static %}
+
+<!DOCTYPE html>
+
+<html lang="en">
+
+    <head>
+        {% include 'head.html' %}
+        <title>{% block title %}Blog Home{% endblock  %}</title>
+    </head>
+
+    <body>
+
+        {% include "templates/header.html" %} 
+    <main>
+        {% block content %}{% endblock content %}
+    </main>
+        
+    </body>
+
+</html>

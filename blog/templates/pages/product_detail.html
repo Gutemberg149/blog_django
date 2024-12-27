@@ -1,0 +1,30 @@
+{% extends "base.html" %}
+
+{% block content %}
+<div class="post_container_detail">
+    <h1>{{post.title}}</h1>
+
+    <img src="{{post.image.url}}" alt="">
+
+    <p class='post_content_p'>{{post.content}}</p>
+
+    <div class="bottom_detail">
+        <p> <strong>From: </strong>{{post.country}}</p>
+        <p><strong>Created at:</strong> {{post.created_at}}</p>
+
+        <a href="{% url 'blogs:edit_post' post.slug %}">
+            <button class="btn_edit_detail" type="button">Edit post</button>
+        </a>
+
+        <form action="{% url 'blogs:delete_post' post.slug %}" method='post'>
+            {% csrf_token %}
+            <button class="btn_delete_detail" type='submit'>Delete post</button>
+        </form>
+    </div>
+   
+ 
+    
+</div>
+
+{% endblock content %}
+

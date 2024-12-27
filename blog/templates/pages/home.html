@@ -1,0 +1,20 @@
+{% extends "base.html" %}
+
+{% block content %}
+    <h1 class="title_allpost">All Posts</h1>
+
+    <div class="post_container_main">
+        {% for post in posts %}
+        <a href="{% url 'blogs:product_detail' post.slug %}">
+            <div class="post_container">
+                <h4>{{ post.title }}</h4>
+                <img src="{{ post.image.url }}" alt="">
+                
+                <p>
+                    {{ post.content|slice:":46" }}{% if post.content|length > 46 %}...{% endif %}
+                </p>
+            </div>
+        </a>
+        {% endfor %}
+    </div>
+{% endblock content %}
